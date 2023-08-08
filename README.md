@@ -41,10 +41,15 @@ npm install
    });
    ```
 
-   ```bash
-   npm run build
-   npm run start
-   ```
+To compile TypeScript files into JavaScript, run the "build" script
+```bash
+npm run build
+```
+
+start application using the "start" script
+```bash
+npm start
+```
 
 ## API Endpoint
 
