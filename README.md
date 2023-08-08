@@ -1,10 +1,10 @@
 # FluxKart Bitespeed Identity Reconciliation
 
-The FluxKart Bitespeed Identity Reconciliation web service helps identify and consolidate customer identities across multiple purchases on FluxKart.com.
+The Bitespeed Identity Reconciliation web service helps identify and consolidate customer identities across multiple purchases on FluxKart.com.
 
 ## Overview
 
-The FluxKart Bitespeed Identity Reconciliation web service allows the consolidation of customer contact information from multiple purchases, linking primary and secondary contacts, and providing a personalized customer experience.
+The Bitespeed Identity Reconciliation web service allows the consolidation of customer contact information from multiple purchases, linking primary and secondary contacts, and providing a personalized customer experience.
 
 ## Prerequisites
 
@@ -29,12 +29,14 @@ npm install
    export const sequelize = new Sequelize("<db_name>", "your_db_user", "your_db_password", {
      host: "localhost",
      dialect: "postgres",
-     port: 5432, // Change this to your database port if necessary
-   });```
+     port: 5432,
+   });
+   ```
 
-   ```sh
+   ```bash
    npm run build
-   npm run start```
+   npm run start
+   ```
 
 ## API Endpoint
 
@@ -46,7 +48,8 @@ Request
 {
   "email": "customer@gmail.com",
   "phoneNumber": "123456789"
-}```
+}
+```
 
 Response
 ```json
@@ -57,5 +60,6 @@ Response
     "phoneNumbers": ["123456789"],
     "secondaryContactIds": [2, 3]
   }
-}```
+}
+```
 
