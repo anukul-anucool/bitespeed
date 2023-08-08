@@ -1,5 +1,5 @@
 import { DataTypes, Model, ModelAttributes } from "sequelize";
-import { sequelize } from "../app"; // Assuming the Sequelize instance is created and exported in app.ts
+import { sequelize } from "../app";
 
 interface ContactAttributes {
   id?: number;
@@ -55,8 +55,18 @@ const contactAttributes: ModelAttributes<Contact, ContactAttributes> = {
 };
 
 Contact.init(contactAttributes, {
-  sequelize, // Use the Sequelize instance here
+  sequelize, 
   tableName: "Contact",
+});
+
+Contact.hasMany(Contact, {
+  foreignKey: "linkedId",
+  as: "secondaryContacts",
+});
+
+Contact.belongsTo(Contact, {
+  foreignKey: "linkedId",
+  as: "primaryContact",
 });
 
 export default Contact;
