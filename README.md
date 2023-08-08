@@ -6,6 +6,14 @@ The Bitespeed Identity Reconciliation web service helps identify and consolidate
 
 The Bitespeed Identity Reconciliation web service allows the consolidation of customer contact information from multiple purchases, linking primary and secondary contacts, and providing a personalized customer experience.
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoint](#api-endpoint)
+
 ## Prerequisites
 
 Before using this web service, ensure that you have the following prerequisites installed:
