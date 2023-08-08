@@ -1,4 +1,4 @@
-# FluxKart Bitespeed Identity Reconciliation
+# Bitespeed Identity Reconciliation
 
 The Bitespeed Identity Reconciliation web service helps identify and consolidate customer identities across multiple purchases on FluxKart.com.
 
