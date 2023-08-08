@@ -15,24 +15,31 @@ interface ConsolidatedContact {
 }
 
 export async function identifyHandler(req: Request, res: Response): Promise<void> {
-  const { email, phoneNumber } = req.body as RequestBody;
-  const { primaryContactId, secondaryContactIds } = await findContacts(email, phoneNumber);
-
-  // Filter out undefined values from the arrays and cast to string[]
-  const emails = [email].filter(Boolean) as string[];
-  const phoneNumbers = [phoneNumber].filter(Boolean) as string[];
-
-  // Respond with the consolidated contact information
-  const response: { contact: ConsolidatedContact } = {
-    contact: {
-      primaryContactId,
-      emails,
-      phoneNumbers,
-      secondaryContactIds,
-    },
-  };
-
-  res.status(200).json(response);
+  try{
+    const { email, phoneNumber } = req.body as RequestBody;
+    const { primaryContactId, secondaryContactIds } = await findContacts(email, phoneNumber);
+  
+    // Filter out undefined values from the arrays and cast to string[]
+    const emails = [email].filter(Boolean) as string[];
+    const phoneNumbers = [phoneNumber].filter(Boolean) as string[];
+  
+    // Respond with the consolidated contact information
+    const response: { contact: ConsolidatedContact } = {
+      contact: {
+        primaryContactId,
+        emails,
+        phoneNumbers,
+        secondaryContactIds,
+      },
+    };
+  
+    res.status(200).json(response);
+  }
+  catch (error) {
+    console.error("Error in identifyHandler:", error);
+    res.status(500).json({ error: "An error occurred while processing the request." });
+  }
+  
 }
 
 // Function to find primary contact and secondary contact IDs
